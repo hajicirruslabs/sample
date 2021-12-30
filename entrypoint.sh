@@ -1,6 +1,5 @@
 #!/bin/bash
 
-export GITHUB_TOKEN=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
 
 git clone https://x-access-token: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@github.com/cirruslabs-io/codeql-sample.git
 
