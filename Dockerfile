@@ -51,15 +51,29 @@ RUN apk add --no-cache mono --repository http://dl-cdn.alpinelinux.org/alpine/ed
 RUN wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
 
 RUN mono nuget.exe install
+RUN echo "Installing NodeJS 12...."
+RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.11/main/ nodejs=12.22.6-r0
+RUN apk add --no-cache npm
 
+RUN npm i -g yarn
+RUN npm i -g typescript
 
 COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
 
 
+RUN apk add bash icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib
 
-# RUN apk add bash icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib
+
+ENV WSS_GROUP wssgroup
+ENV WSS_USER wssscanner
+ENV WSS_USER_HOME=/home/${WSS_USER}
+
+RUN addgroup -S ${WSS_GROUP}
+RUN adduser -S ${WSS_USER} -G ${WSS_GROUP} -S /bin/bash -h ${WSS_USER_HOME}
+RUN passwd -d ${WSS_USER}
+
 
 # #RUN apk add libgdiplus --repository https://alpine.global.ssl.fastly.net/alpine/edge/testing/
 # RUN wget https://download.visualstudio.microsoft.com/download/pr/bd94779d-c7c4-47fd-b80a-0088caa0afc6/40f115bbf4c068359e7a066fe0b03dbc/dotnet-sdk-6.0.101-linux-musl-x64.tar.gz -P /etc
