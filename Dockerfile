@@ -28,6 +28,9 @@ RUN tar zxf "$DOTNET_FILE" -C "$DOTNET_ROOT"
 RUN rm $DOTNET_FILE
 ENV PATH=$PATH:$DOTNET_ROOT
 
+ENV JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
+ENV PATH=$PATH:$JAVA_HOME
+
 
 RUN apk add --no-cache openjdk8
 
@@ -50,7 +53,9 @@ RUN wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
 RUN mono nuget.exe install
 
 
-
+COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT [ "/entrypoint.sh" ]
 
 
 
