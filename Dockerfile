@@ -1,8 +1,58 @@
 FROM alpine:3.15.0
 
-COPY install.sh /
+# COPY install.sh /
 
-RUN /install.sh
+# RUN /install.sh
+
+
+
+
+
+RUN apk --no-cache update && \
+    apk --no-cache add \
+        curl \
+        git \
+        gnupg \
+        unzip \
+        wget && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm -rf /tmp/*
+
+
+RUN echo "Installing DotNet6...."
+RUN wget https://download.visualstudio.microsoft.com/download/pr/bd94779d-c7c4-47fd-b80a-0088caa0afc6/40f115bbf4c068359e7a066fe0b03dbc/dotnet-sdk-6.0.101-linux-musl-x64.tar.gz -P /etc
+ENV DOTNET_FILE=/etc/dotnet-sdk-6.0.101-linux-musl-x64.tar.gz
+ENV DOTNET_ROOT=/etc/dotnet6
+RUN mkdir -p "$DOTNET_ROOT"
+RUN tar zxf "$DOTNET_FILE" -C "$DOTNET_ROOT"
+RUN rm $DOTNET_FILE
+ENV PATH=$PATH:$DOTNET_ROOT
+
+
+RUN apk add --no-cache openjdk8
+
+RUN apk add --no-cache python3 py3-pip
+RUN pip3 install pipenv
+
+RUN python3 -m pip install --upgrade pip && \
+    python3 -m pip install virtualenv
+
+RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.11/main/ nodejs=12.22.6-r0
+
+
+RUN apk add --no-cache mono --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing && \
+    apk add --no-cache --virtual=.build-dependencies ca-certificates && \
+    cert-sync /etc/ssl/certs/ca-certificates.crt && \
+    apk del .build-dependencies
+
+RUN wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+
+RUN mono nuget.exe install
+
+
+
+
+
 
 # RUN apk add bash icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib
 
