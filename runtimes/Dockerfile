@@ -21,7 +21,7 @@ RUN apt install jq -y
 RUN apt install -y software-properties-common
 RUN apt update
 
-ENV RUNTIME_VERSIONS '[{"Runtime": "Java", "Version": "11"}, {"Runtime": "Maven", "Version": "8"}, {"Runtime": ".NET", "Version": "5.0"}, {"Runtime": "NodeJS", "Version": "16.x"}]'
+ENV RUNTIME_VERSIONS '[{"Runtime": "Mono", "Version": "5.10.0"}, {"Runtime": "Python", "Version": "3.7"}, {"Runtime": "Java", "Version": "11"}, {"Runtime": "Maven", "Version": "8"}, {"Runtime": ".NET", "Version": "5.0"}, {"Runtime": "NodeJS", "Version": "16.x"}]'
 
 COPY install-scripts /install-scripts/
 RUN chmod +x /install-scripts/*.sh
