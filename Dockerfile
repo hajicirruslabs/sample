@@ -21,3 +21,22 @@ ENV PATH="${INSTALL_PATH}/sonar-scanner-4.7.0.2747-linux/bin:${PATH}"
 COPY sonar-scanner /usr/local/sonar-scanner-4.7.0.2747-linux/bin/
 
 # CMD ["sonar-scanner"]
+
+
+FROM ubuntu:18.04
+
+### Install wget, curl, git, unzip, gnupg, locales
+RUN apt-get update
+RUN apt-get -y install curl
+RUN apt-get -y install git
+RUN apt-get -y install unzip
+RUN apt-get -y install wget
+
+RUN apt-get  clean
+RUN rm -rf /var/lib/apt/lists/*
+RUN rm -rf /tmp/*
+
+RUN wget https://github.com/peter-murray/github-security-report-action/releases/download/v2/github-security-report-bundle-linux-x64.zip
+
+RUN unzip github-security-report-bundle-linux-x64.zip
+RUN unzip github-security-report-bundle.zip -d github-security-report
