@@ -21,7 +21,10 @@ ENV PATH="${INSTALL_PATH}/sonar-scanner-4.7.0.2747-linux/bin:${PATH}"
 COPY sonar-scanner /usr/local/sonar-scanner-4.7.0.2747-linux/bin/
 
 # CMD ["sonar-scanner"]
-
+RUN apt-get update
+RUN apt-get install -y libgbm-dev
+RUN apt-get install -y libxss1
+RUN apt-get install -y libgtk-3-0
 
 FROM ubuntu:18.04
 
