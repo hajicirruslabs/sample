@@ -1,0 +1,17 @@
+import axios from 'axios';
+import qs from 'qs';
+
+export const getAccessToken: any = async function() {
+    axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+    const resp = await axios.post(getTokenEndPoint(), qs.stringify({
+        client_id: process.env.B2C_CLIENT_ID,
+        scope: process.env.B2C_SCOPE,
+        client_secret: process.env.B2C_SECRET,
+        grant_type: 'client_credentials'
+    }));
+    return resp.data.access_token;
+}
+
+const getTokenEndPoint: any = () => {
+    return 'https://login.microsoftonline.com/' + process.env.B2C_TENANT_ID + '/oauth2/v2.0/token';
+}
