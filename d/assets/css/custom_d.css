@@ -1,15 +1,7 @@
-/* navigation */
-nav .navbar-toggler{padding:0px;font-size:inherit;line-height:1;background-color:transparent;border:0px;border-radius:unset;cursor:pointer;}
-nav .icon-bar{width:32px;height:2px;display:block;transition:all 0.2s;margin-bottom:7px;background-color:#fff;}
-nav .navbar-toggler .top-bar{transform:rotate(45deg);transform-origin:10% 10%;}
-nav .navbar-toggler .middle-bar{opacity:0;}
-nav .navbar-toggler .bottom-bar{transform:rotate(-45deg);transform-origin:10% 90%;}
-nav .navbar-toggler.collapsed .top-bar{transform:rotate(0);}
-nav .navbar-toggler.collapsed .middle-bar{opacity:1;}
-nav .navbar-toggler.collapsed .bottom-bar{transform:rotate(0);}
-@media (min-width: 992px){
-    .navbar-expand-lg .navbar-nav .nav-link {padding-right:.8rem;padding-left:.8rem;}
-}
+/*common styles*/
+body{font-family:"Open Sans", sans-serif;}
+
+.svg-icon{fill:currentColor!important;}
 
 /* app-name styles  */
 .app-name{font-size: 1.2em;}
@@ -22,6 +14,10 @@ nav .navbar-toggler.collapsed .bottom-bar{transform:rotate(0);}
 /* card styles */
 .card{border: 1px solid #c7d5d5;}
 .card-title{color: #007680;}
+
+/* breadcrumb */
+.breadcrumb a{ color: #666666; text-decoration: none;}
+.breadcrumb a:hover, .breadcrumb a:focus, .breadcrumb a:active {color: #0b848e;}
 
 /* button styles  */
 .btn-primary{background:#0b848e;color:#ffffff;border:1px solid #0b848e;border-radius:2px;}
