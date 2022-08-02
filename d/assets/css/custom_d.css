@@ -12,7 +12,7 @@ body{font-family:"Open Sans", sans-serif;}
 .secondary-nav > li > a:hover, .secondary-nav > li > a:focus, .secondary-nav > li > a:active {color: #0b848e;}
 
 /* card styles */
-.card{border: 1px solid #c7d5d5;}
+.card{border: 1px solid #c7d5d5;min-width: 300px;}
 .card-title{color: #007680;}
 
 /* breadcrumb */
@@ -22,3 +22,8 @@ body{font-family:"Open Sans", sans-serif;}
 /* button styles  */
 .btn-primary{background:#0b848e;color:#ffffff;border:1px solid #0b848e;border-radius:2px;}
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active{background:#02626a!important;border-color:#02626a!important;color:#c9f2f5;}
+  
+.secondary-nav > li > a > .menu-text {display: none; position: absolute; left: 55px; z-index: 1025; padding: 5px;  border: 1px solid #e5e5e5;
+  background: #ffffff; font-size: .875em; box-shadow: 2px 1px 2px 0 rgb(0 0 0 / 10%);
+}
+.secondary-nav> li:hover > a > .menu-text{display: inline-block;}

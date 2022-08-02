@@ -15,9 +15,9 @@
     </head>
 
     <body> 
-        <div class="container bg-dark border border-bottom-0">
+        <div class="container-fluid bg-dark">
             <header class="bg-dark shadow-sm">
-                <nav class="navbar sticky-top navbar-expand-lg" id="mainNav">
+                <nav class="navbar sticky-top navbar-expand-lg navbar-dark" id="mainNav">
                     <a class="navbar-brand" href="#">                    
                         <img src="assets/images/logo@2x.svg" alt="Deloittee">                                      
                     </a>
@@ -25,11 +25,28 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbars-top">
-                        <div class="navbar-nav me-auto">                         
-                            <span class="text-secondary d-none d-md-inline-block">|&nbsp;&nbsp;&nbsp;</span>
-                            <span class="app-name text-white">Application Lifecycle Management</span>                         
-                        </div>                     
-                        <div class="header-action text-white">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item text-white">
+                                <a class="nav-link text-white" style="padding-left:0px;padding-right:10px;">|&nbsp;&nbsp;&nbsp;Application Lifecycle Management</a>
+                            </li>                
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown 1</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Dropdown Menu 1</a></li>
+                                    <li><a class="dropdown-item" href="#">Dropdown Menu 2</a></li>
+                                    <li><a class="dropdown-item" href="#">Dropdown Menu 3</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Dropdown Menu 1</a></li>
+                                    <li><a class="dropdown-item" href="#">Dropdown Menu 2</a></li>
+                                    <li><a class="dropdown-item" href="#">Dropdown Menu 3</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="header-action">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">
@@ -39,8 +56,11 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">&nbsp;</li>
-                                <li class="nav-item">
-                                    <a class="nav-link bg-light text-center fw-bold" href="#">RA</a>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle bg-light text-secondary text-center fw-bold" href="#" data-bs-toggle="dropdown" aria-expanded="false">RA</a>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#">Logout</a></li> 
+                                    </ul>
                                 </li>
                             </ul>
                         </div>
@@ -48,37 +68,47 @@
                 </nav> 
             </header>
         </div>
-        <div class="container border border-top-0">      
+        <div class="container-fluid">      
             <main role="main">         
-                <div class="row">
-                    <div class="col-12 col-md-4 col-xl-3 bg-white vh-100">
-                        <div class="mt-md-5">
-                            <ul class="secondary-nav list-unstyled mb-0">
-                                <li class="pt-2 pb-2">
-                                    <a href="#">
-                                        <img src="assets/images/carbon-star@2x.svg" height="20">&nbsp; Home
-                                    </a>
-                                </li>
-                                <li class="pt-2 pb-2">
-                                    <a href="#">
-                                        <img src="assets/images/carbon-star@2x.svg" height="20">&nbsp; Infrastructure Dashboard
-                                    </a>
-                                </li>
-                                <li class="pt-2 pb-2">
-                                    <a href="#">
-                                        <img src="assets/images/carbon-star@2x.svg" height="20">&nbsp; My Applications
-                                    </a>
-                                </li>
-                                <li class="pt-2 pb-2">
-                                    <a href="#">
-                                        <img src="assets/images/carbon-star@2x.svg" height="20">&nbsp; Notifications
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                <div class="d-flex flex-row">
+                    <div class="bg-white vh-100">                         
+                        <ul class="secondary-nav list-unstyled mb-0">
+                            <li>
+                                <a href="#" class="p-3">
+                                    <span class="menu-icon d-inline-block">
+                                        <img src="assets/images/carbon-star@2x.svg" height="20">
+                                    </span>
+                                    <span class="menu-text">Home</span>
+                                </a>                                
+                            </li>
+                            <li>
+                                <a href="#" class="p-3">
+                                    <span class="menu-icon d-inline-block">
+                                        <img src="assets/images/carbon-star@2x.svg" height="20"> 
+                                    </span>
+                                    <span class="menu-text">Infrastructure Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="p-3">
+                                    <span class="menu-icon d-inline-block">
+                                        <img src="assets/images/carbon-star@2x.svg" height="20">
+                                    </span>
+                                    <span class="menu-text">My Applications</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="p-3">
+                                    <span class="menu-icon d-inline-block">
+                                        <img src="assets/images/carbon-star@2x.svg" height="20">
+                                    </span>
+                                    <span class="menu-text">Notifications</span>
+                                </a>
+                            </li>
+                        </ul>                         
                     </div>
-                	<div class="col-12 col-md-8 col-xl-9 bg-light vh-100">
-                        <div class="row pt-3 pb-3">
+                	<div class="bg-light vh-100 p-3 overflow-hidden">
+                        <div class="row pb-3">
                             <div class="col-12 col-sm-6 col-lg-8">
                                 <h4 class="text-secondary">My Applications</h4>
                             </div>
@@ -87,7 +117,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12 col-md-6 col-lg-4">
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-auto">
                                 <div class="card rounded shadow-sm mb-4 text-center">
                                     <div class="card-body">
                                         <img src="assets/images/carbon-api@2x.svg" alt="AD Security" height="40">
@@ -109,7 +139,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 col-lg-4">
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-auto">
                                 <div class="card rounded shadow-sm mb-4 text-center">
                                     <div class="card-body">
                                         <img src="assets/images/carbon-star@2x.svg" alt="Arbiter" height="40">
@@ -131,7 +161,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 col-lg-4">
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-auto">
                                 <div class="card rounded shadow-sm mb-4 text-center">
                                     <div class="card-body">
                                         <img src="assets/images/carbon-graphical-data-flow@2x.svg" alt="Inventory" height="40">
@@ -153,7 +183,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 col-lg-4">
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-auto">
                                 <div class="card rounded shadow-sm mb-4 text-center">
                                     <div class="card-body">
                                         <img src="assets/images/carbon-development@2x.svg" alt="Compass" height="40">
@@ -175,7 +205,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 col-lg-4">
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-auto">
                                 <div class="card rounded shadow-sm mb-4 text-center">
                                     <div class="card-body">
                                         <img src="assets/images/carbon-event@2x.svg" alt="Cosmic" height="40">
@@ -197,7 +227,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 col-lg-4">
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-auto">
                                 <div class="card rounded shadow-sm mb-4 text-center">
                                     <div class="card-body">
                                         <img src="assets/images/carbon-headset@2x.svg" alt="DCS" height="40">
@@ -219,7 +249,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 col-lg-4">
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-auto">
                                 <div class="card rounded shadow-sm mb-4 text-center">
                                     <div class="card-body">
                                         <img src="assets/images/carbon-api@2x.svg" alt="Nexa" height="40">
@@ -241,7 +271,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 col-lg-4">
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-auto">
                                 <div class="card rounded shadow-sm mb-4 text-center">
                                     <div class="card-body">
                                         <img src="assets/images/carbon-category--new-each@2x.svg" alt="Integrity" height="40">
@@ -263,7 +293,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 col-lg-4">
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-auto">
                                 <div class="card rounded shadow-sm mb-4 text-center">
                                     <div class="card-body">
                                         <img src="assets/images/carbon-code@2x.svg" alt="Puppet" height="40">
@@ -289,10 +319,9 @@
                 	</div>
                 </div>
             </main>
-        </div>
+        </div>  
         
         <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
-        <script src="assets/js/popper.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script> 
     </body>
 </html>
