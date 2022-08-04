@@ -6,6 +6,21 @@ body{font-family:"Open Sans", sans-serif;}
 /* app-name styles  */
 .app-name{font-size: 1.2em;}
 
+/* layout  */
+.sidebar-min{width:50px;height:100%;position:fixed;}
+.sidebar-min .menu-open{display:inline-block;}
+.sidebar-min .menu-close{display:none;}
+.sidebar-max{width:auto!important;height:100%;position:absolute!important;z-index:1025;opacity:.9;box-shadow:1px 0 5px -1px #ccc;transition:width 2s;}
+.sidebar-max .menu-open{display:none!important;transition:2s;}
+.sidebar-max .menu-close{display:inline-block!important;transition:2s;}
+.sidebar-min .secondary-nav > li > a > .menu-text {display:none;}
+.sidebar-max .secondary-nav > li > a > .menu-text {display:inline-block;}
+
+.main-content{width:calc(100% - 50px);position:relative;left:50px;z-index:1;}
+
+/* common  */
+.page-title{color:#0b848e;;}
+
 /* secondary navigation  */
 .secondary-nav{margin: 0px;padding: 0px;}
 .secondary-nav > li > a {display: block; color: #666666; text-decoration: none;}
@@ -22,8 +37,19 @@ body{font-family:"Open Sans", sans-serif;}
 /* button styles  */
 .btn-primary{background:#0b848e;color:#ffffff;border:1px solid #0b848e;border-radius:2px;}
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active{background:#02626a!important;border-color:#02626a!important;color:#c9f2f5;}
-  
-.secondary-nav > li > a > .menu-text {display: none; position: absolute; left: 55px; z-index: 1025; padding: 5px;  border: 1px solid #e5e5e5;
-  background: #ffffff; font-size: .875em; box-shadow: 2px 1px 2px 0 rgb(0 0 0 / 10%);
+
+/* pagination  */
+.pagination{
+    --bs-pagination-border-color:none;
+    --bs-pagination-active-color: #02626a;
+    --bs-pagination-active-bg: #fffff;
+    --bs-pagination-active-border: 1px solid ;
+    --bs-pagination-active-border-color: #02626a;
 }
-.secondary-nav> li:hover > a > .menu-text{display: inline-block;}
+.pagination .active>.page-link{border: 1px solid #02626a;}
+.page-link{padding: 5px 15px;color:#555555;}
+
+
+  
+
+
