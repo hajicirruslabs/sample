@@ -6,11 +6,18 @@ body{font-family:"Open Sans", sans-serif;}
 /* app-name styles  */
 .app-name{font-size: 1.2em;}
 
+/* header actions  */
+/*.navbar { 
+    --bs-navbar-padding-y: 0rem;
+}*/
+.header-actions .nav-item > .nav-link{color: #ffffff;}
+.header-actions .nav-item > .nav-link:hover{background-color: #ffffff !important;color: #555555 !important;}
+
 /* layout  */
-.sidebar-min{width:50px;height:100%;position:fixed;}
+.sidebar-min{width:50px;height:100%;position:absolute;}
 .sidebar-min .menu-open{display:inline-block;}
 .sidebar-min .menu-close{display:none;}
-.sidebar-max{width:auto!important;height:100%;position:absolute!important;z-index:1025;opacity:.9;box-shadow:1px 0 5px -1px #ccc;transition:width 2s;}
+.sidebar-max{width:auto!important;height:100%;position:absolute!important;z-index:1025;box-shadow:1px 0 5px -1px #ccc;transition:width 2s;}
 .sidebar-max .menu-open{display:none!important;transition:2s;}
 .sidebar-max .menu-close{display:inline-block!important;transition:2s;}
 .sidebar-min .secondary-nav > li > a > .menu-text {display:none;}
@@ -19,7 +26,8 @@ body{font-family:"Open Sans", sans-serif;}
 .main-content{width:calc(100% - 50px);position:relative;left:50px;z-index:1;}
 
 /* common  */
-.page-title{color:#0b848e;;}
+.page-title{color:#0b848e;}
+.svg-icon{fill:currentColor!important;}
 
 /* secondary navigation  */
 .secondary-nav{margin: 0px;padding: 0px;}
