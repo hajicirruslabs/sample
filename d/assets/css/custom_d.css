@@ -1,7 +1,8 @@
 /*common styles*/
 body{font-family:"Open Sans", sans-serif;}
 
-.svg-icon{fill:currentColor!important;}
+.svg-icon{fill:currentColor!important;display:inline-block;vertical-align:middle;}
+.svg-spin{-webkit-animation:svg-spin 2s infinite linear;animation:svg-spin 2s infinite linear;}
 
 /* app-name styles  */
 .app-name{font-size: 1.2em;}
