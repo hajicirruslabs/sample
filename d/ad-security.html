@@ -12,6 +12,7 @@
         <link href="assets/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom styles -->
         <link href="assets/css/custom_d.css" rel="stylesheet">
+        <link href="assets/css/select2.min.css" rel="stylesheet">
     </head>
 
     <body>
@@ -347,14 +348,13 @@
                                             </div>
                                         </div> 
                                         <div class="row">
-                                            <div class="col-3 col-md-2 col-xl-2">
+                                            <div class="col-3 col-md-2 col-xl-1 pe-1">
                                                 <div class="ms-3">
                                                     Page 
-                                                    <input class="border ml-1 me-1 w-25 form-control-sm text-center" type="text" value="1">
-
+                                                    <input class="border ml-1 me-1 form-control-sm text-center" type="text" value="1" style="width:40px;">
                                                 </div>
                                             </div>
-                                            <div class="col-6 col-md-8 col-xl-8"> 
+                                            <div class="col-6 col-md-8 col-xl-9 ps-1"> 
                                                 <nav aria-label="navigation">
                                                     <ul class="pagination pagination-sm">
                                                         <li class="page-item">
@@ -375,7 +375,7 @@
                                                     </ul>
                                                 </nav>
                                             </div>
-                                            <div class="col-3 col-md-2 col-xl-2">
+                                            <div class="col-12 col-md-2 col-xl-2">
                                                 <div class="float-end me-3"> 
                                                     1-10 <b class="ml-1">20</b>
                                                 </div>
@@ -407,16 +407,24 @@
 
         <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
         <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/select2.min.js"></script>        
 
         <script>
             $(function(){
                 $('.menu-toggle').on('click', function(){
                     $('.sidebar-min').toggleClass('sidebar-max');
                 });
+
+                $('.select2').select2();
+
+                $('.selectAssetType').select2({
+                    width: "100%",
+                    dropdownParent: $("#addAnAsset"),
+                }); 
             })
         </script>
 
-        <div id="addAnAsset" class="modal fade" tabindex="-1" aria-labelledby="addAnAsset" aria-hidden="true">
+        <div id="addAnAsset" class="modal hide fade" aria-labelledby="addAnAsset" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header border-0">
@@ -426,17 +434,20 @@
                     <div class="modal-body">                        
                         <form class="row g-3" name="addAnAsset">
                             <div class="col-md-6">
-                                <label for="inputEmail4" class="form-label">Asset type</label>
-                                <select name="assetType" class="form-select">
-                                    <option selected>Choose asset type</option>
-                                </select>
+                                <label for="assetType" class="form-label">Asset type</label>
+                                <select class="form-select select2 selectAssetType required" name="assetType">
+                                    <option value="Choose">Choose one...</option>
+                                    <option class="FirstAsset">First Asset</option>
+                                    <option value="SecondAsset">Second Asset</option>
+                                    <option value="ThirdAsset">Third Asset</option>
+                                </select>                                
                             </div>
                             <div class="col-md-6">
-                                <label for="inputPassword4" class="form-label">Name</label>
+                                <label for="name" class="form-label">Name</label>
                                 <input type="text" class="form-control" placeholder="Enter Name">
                             </div>
                             <div class="col-md-6">
-                                <label for="inputEmail4" class="form-label">Expiry Date</label>
+                                <label for="expiryDate" class="form-label">Expiry Date</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Expirty Date">
                                     <span class="input-group-text bg-white border-left-0">
@@ -445,11 +456,11 @@
                                 </div>                                 
                             </div>
                             <div class="col-md-6">
-                                <label for="inputPassword4" class="form-label">Environment</label>
+                                <label for="environment" class="form-label">Environment</label>
                                 <input type="text" class="form-control">
                             </div>
                             <div class="col-12">
-                                <label for="inputAddress" class="form-label">Description</label>
+                                <label for="description" class="form-label">Description</label>
                                 <textarea class="form-control" rows="3"></textarea>
                             </div> 
                         </form>
